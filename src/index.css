@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg-deep: #050508;
+  --color-bg-panel: rgba(12, 12, 18, 0.72);
+  --color-neon-cyan: #22d3ee;
+  --color-neon-violet: #a78bfa;
+  --color-neon-mint: #34d399;
+  --color-neon-pink: #f472b6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-base: #050508;
+  --bg-elevated: #0c0c12;
+  --bg-glass: rgba(12, 12, 20, 0.65);
+  --text-primary: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --border-glow: rgba(34, 211, 238, 0.25);
+  --glow-cyan: #22d3ee;
+  --glow-violet: #a78bfa;
+  --glow-mint: #34d399;
+}
+
+html.light {
+  --bg-base: #f4f4f8;
+  --bg-elevated: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --text-primary: #18181b;
+  --text-muted: #52525b;
+  --border-glow: rgba(99, 102, 241, 0.35);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.35);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-elevated);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--glow-cyan), var(--glow-violet));
+  border-radius: 4px;
+}
+
+/* Print — CV page */
+@media print {
+  body {
+    cursor: auto !important;
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
